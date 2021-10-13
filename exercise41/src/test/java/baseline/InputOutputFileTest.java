@@ -10,12 +10,11 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class InputOutputFileTest {
-    InputOutputFile inOutFile = new InputOutputFile();
     File inputFile = new File("data\\exercise41_input.txt");
     InputOutputFile test = new InputOutputFile();
 
     @Test
-    void readInputFileTest() throws FileNotFoundException {
+    void readInputFileTest() {
         try{
             //check to see if the testArray (hardcoded version) and readArray (test method) is the same
             List<String> testArray = new ArrayList<>();
@@ -27,8 +26,7 @@ class InputOutputFileTest {
             testArray.add("Swift, Geoffrey");
             testArray.add("Xiong, Fong");
 
-            List<String> readArray = new ArrayList<>();
-            readArray = test.readInputFile(inputFile);
+            List<String> readArray = test.readInputFile(inputFile);
 
             assertEquals(testArray, readArray);
             assertEquals(testArray.size(),readArray.size());
@@ -48,9 +46,8 @@ class InputOutputFileTest {
         testArray.add("Swift, Geoffrey");
         testArray.add("Xiong, Fong");
 
-        test.displayName(testArray,"exercise41_output");
-        List<String> readArray = new ArrayList<>();
-        readArray = test.readInputFile(inputFile);
+        test.displayName(testArray);
+        List<String> readArray = test.readInputFile(inputFile);
 
         assertEquals(testArray, readArray);
         assertEquals(testArray.size(),readArray.size());

@@ -7,7 +7,7 @@ package baseline;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -20,12 +20,12 @@ public class Solution41 {
         File inputFile = new File("data\\exercise41_input.txt");
 
         //create method to read from file, return an arrayList
-        List<String> arrayList = new ArrayList<>();
-        arrayList = inOutFile.readInputFile(inputFile);
+        List<String> arrayList = inOutFile.readInputFile(inputFile);
 
         //sort the arrayList with Collections class with sort method
+        Collections.sort(arrayList);
 
         //output using the function
-        inOutFile.displayName(arrayList,"data\\exercise41_output.txt");
+        inOutFile.displayName(arrayList);
     }
 }
