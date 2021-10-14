@@ -6,11 +6,12 @@
 package baseline;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Solution42 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         FileReaderWriter inOutFile = new FileReaderWriter();
         Solution42 sol = new Solution42();
 

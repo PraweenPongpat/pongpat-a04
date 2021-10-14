@@ -1,0 +1,17 @@
+@startuml
+class Solution42 {
+    + main()
+    - List<ArrayList<String>> ParseComma(List<String>)
+    - void displayTableFormat(List<ArrayList<String>>)
+        ' display to screen
+
+}
+
+class FileReaderWriter {
+    - List<String> readInputFile(File)
+    - void displayTableFormat(List<ArrayList<String>>)
+        ' display to output.txt
+}
+
+Solution42 -- FileReaderWriter
+@enduml
