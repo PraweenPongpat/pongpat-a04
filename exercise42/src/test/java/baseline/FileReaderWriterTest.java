@@ -14,7 +14,7 @@ class FileReaderWriterTest {
     FileReaderWriter test = new FileReaderWriter();
 
     @Test
-    void readInputFileTest() throws FileNotFoundException {
+    void readInputFileTest() {
         try {
             List<String> testData = new ArrayList<>();
             testData.add("Ling,Mai,55900");

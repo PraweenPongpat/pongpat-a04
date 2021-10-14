@@ -8,6 +8,7 @@ package baseline;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Solution42 {
@@ -23,7 +24,7 @@ public class Solution42 {
         List<String> rawInput = inOutFile.readInputFile(fileInput);
 
         //parse the file
-        List<ArrayList<String>> parsedInput = sol.ParseComma(rawInput);
+        List<ArrayList<String>> parsedInput = sol.parseComma(rawInput);
 
         //display output as .txt file
         inOutFile.displayTableFormat(parsedInput);
@@ -33,29 +34,37 @@ public class Solution42 {
     }
 
     //method to parse the data split by comma
-    private List<ArrayList<String>> ParseComma(List<String> rawInput) {
+    private List<ArrayList<String>> parseComma(List<String> rawInput) {
         //make a temp String to store each line before parsing
-        //make a temp char[] to convert string to char[]
         //make a temp String
-
+        List<ArrayList<String>> parsedByComma = new ArrayList<>();
         //nested (outer)loop through size of List
-        //  nested (middle)loop through char[] as long as it's not 'newLine'
-        //      (inner)loop as long as it's not ','
-        //          append each char to the temp String
-        //      add temp string ArrayList
-        //  add ArrayList to a [List-of-ArrayList]
-
+        for (String s : rawInput) {
+            //split the data using split()
+            ArrayList<String> eachPerson = new ArrayList<>(Arrays.asList(s.split(",")));
+            //add temp string ArrayList
+            parsedByComma.add(eachPerson);
+        }
         //return that list
-        return null;
+        return parsedByComma;
     }
 
     //this method shouldn't be in the FileReaderWriter class, since it's outputting to screen
     //method to display table format to screen
     private void displayTableFormat(List<ArrayList<String>> parsedInput) {
         //display heading "Last      First     Salary"
+        System.out.println("Last      First     Salary");
         //display heading "--------------------------"
+        System.out.println("--------------------------");
+
         //loop through size of the list
-        //  display content in each arrayList
+        //  display content in each arrayList to file
         //      lastname, firstname, salary
+        for (ArrayList<String> strings : parsedInput) {
+            for (String string : strings) {
+                System.out.printf("%-10s", string);
+            }
+            System.out.printf("%n");
+        }
     }
 }

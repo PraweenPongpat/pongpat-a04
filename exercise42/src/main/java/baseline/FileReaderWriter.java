@@ -29,15 +29,16 @@ public class FileReaderWriter {
         try (Formatter output = new Formatter("data\\exercise42_output.txt")){
             //display heading "Last      First     Salary" to file
             //display heading "--------------------------" to file
-            output.format("Last      First     Salary");
-            output.format("--------------------------");
+            output.format("Last      First     Salary%n");
+            output.format("--------------------------%n");
             //loop through size of the list
             //  display content in each arrayList to file
             //      lastname, firstname, salary
-            for(int i = 0; i< parsedInput.size(); i++){
-                for(int j = 0; j<parsedInput.get(i).size(); j++){
-                    output.format("%-10s",parsedInput.get(i).get(j));
+            for (ArrayList<String> strings : parsedInput) {
+                for (String string : strings) {
+                    output.format("%-10s", string);
                 }
+                output.format("%n");
             }
         } catch (SecurityException| FileNotFoundException | FormatterClosedException e) {
             System.out.println("output to .txt file has error");
