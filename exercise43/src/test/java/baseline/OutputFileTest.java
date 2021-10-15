@@ -7,6 +7,9 @@ import java.io.File;
 import static org.junit.jupiter.api.Assertions.*;
 
 class OutputFileTest {
+    //*******************The first run of test may not be accurate, depends on the initial state of folders existed
+    //*******************reliable result will be at second run and after
+
     @Test
     void fileFolderManagerTest1() {
         OutputFile createOnlyHTML = new OutputFile("awesomeco","james",false,false);

@@ -33,16 +33,13 @@ public record OutputFile(String nameOfSite, String author, boolean isJS, boolean
     private void makeHTMLFile(String basePath) {
         //create HTML file
         File output = new File(basePath+ "\\index.html");
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(output));
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(output))) {
 
-            //create content in HTML file
-            //write <title>nameOfSite</title> to it
-            writer.write("<title>"+nameOfSite+"</title>");
-            //write <meta> with author's name in it
-            writer.write("<meta name=\"description\" content=\""+author+"\">");
-            //close writer
-            writer.close();
+                //create content in HTML file
+                //write <title>nameOfSite</title> to it
+                writer.write("<title>" + nameOfSite + "</title>");
+                //write <meta> with author's name in it
+                writer.write("<meta name=\"description\" content=\"" + author + "\">");
         } catch (IOException e) {
             System.out.println("HTML files cannot be made...");
         }
