@@ -1,6 +1,5 @@
 package baseline;
 
-
 //this class is made as an obj only to store information properly
 public record Product(String name, double price, int quantity) {
     //set the needed getters

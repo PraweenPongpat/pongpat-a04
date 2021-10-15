@@ -1,0 +1,29 @@
+@startuml
+class Solution44 {
+    +Scanner in
+    +main()
+    -int findProduct(List<Product>)
+    -String jsonFileReader(File)
+}
+class JsonFileHandler {
+    -String rawDataFromJson
+    +set rawDataFromJson()
+    +List<Product> mainHandler()
+    -List<Product> jsonFileParser(String)
+    -String jsonFileReader(File)
+}
+class Product {
+    -String name
+    -double price
+    -int quantity
+
+    +String getName()
+    +double getPrice()
+    +int getQuantity()
+    ' also override toString to proper format
+}
+
+Solution44 *-- JsonFileHandler
+JsonFileHandler *-- Product
+
+@enduml
