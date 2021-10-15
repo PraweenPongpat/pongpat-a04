@@ -27,10 +27,8 @@ public class JsonFileHandler {
         jsonFileReader(jsonFile);
 
         //call jsonFileParser method to parse the String
-        List<Product> list = jsonFileParser();
-
         //return the result
-        return list;
+        return jsonFileParser();
     }
 
     private List<Product> jsonFileParser() {
