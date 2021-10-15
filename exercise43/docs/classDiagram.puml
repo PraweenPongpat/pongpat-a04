@@ -1,0 +1,21 @@
+@startuml
+class Solution43 {
+    +Scanner input
+    +main()
+    -String getStringFromUser()
+    -boolean checkYesOrNo()
+}
+
+class OutputFile {
+    -String nameOfSite
+    -String author
+    -boolean isJS
+    -boolean isCSS
+
+    -fileFolderManager()
+    -makeHTMLFile()
+    -reportFolderFileExisted(File)
+}
+
+Solution43 o-- OutputFile
+@enduml
