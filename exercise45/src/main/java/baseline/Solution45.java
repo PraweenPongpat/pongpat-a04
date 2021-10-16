@@ -5,40 +5,23 @@
 
 package baseline;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Solution45 {
     public static void main(String[] args) {
-        //allocate Solution45
-        Solution45 sol = new Solution45();
+        //create the string that we want to modify from
+        String changeFrom = "";
+        //create the string that we want to modify to
+        String changeTo = "";
 
-        //make the .txt file input
-        InputOutputFile inputOutputFile = new InputOutputFile();
+        //create a constructor for InputOutputFile class
+        InputOutputFile inputOutputFile = new InputOutputFile(changeFrom,changeTo);
 
-        //read the file input as a list of list
-        //an outer list is the whole paragraph
-        //multiple inner lists is each line context
-        List<ArrayList<String>> parsedInput = inputOutputFile.readTextFile();
+        //read the input .txt file
+        String[] originalString = inputOutputFile.readFile();
 
-        //make a string to store utilizes
-        //make a string to store uses
-        //call method replaceWord passing in changeFrom and changeTo
-        List<ArrayList<String>> modifyInput = sol.replaceWord("","",parsedInput);
+        //modify the string[]
+        StringBuilder modifiedString = inputOutputFile.replaceWords(originalString);
 
-        //output the string to a text file
-        inputOutputFile.outputTextFile(modifyInput);
+        //display the modified String
+        inputOutputFile.displayOutput(modifiedString);
     }
-
-    private List<ArrayList<String>> replaceWord(String changeFrom, String changeTo,List<ArrayList<String>> parsedInput) {
-        //go through the list (paragraph)
-        //  go through the arrayList (each line)
-        //      check if the current word matches the changeFrom
-        //      if so, change set the current word to changeTo (replace it)
-        //      if not, keep looking
-
-        //return the list
-        return null;
-    }
-
 }
