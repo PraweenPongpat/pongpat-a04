@@ -60,9 +60,9 @@ public record InputOutputFile(String changeFrom, String changeTo) {
         return result;
     }
 
-    public void displayOutput(StringBuilder output) {
+    public void displayOutput(StringBuilder output,String outputName) {
         //allocate a BufferedWriter link to the output .txt file
-        File outputFile = new File("data\\exercise45_output.txt");
+        File outputFile = new File("data\\"+outputName+".txt");
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))){
             //write the output to the .txt file
             writer.write(output.toString());

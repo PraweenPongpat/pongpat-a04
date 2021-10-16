@@ -1,6 +1,9 @@
 @startuml
 class Solution45 {
+    -Scanner input
+
     +main()
+    -String getString()
 }
 class InputOutputFile {
     -String changeFrom
