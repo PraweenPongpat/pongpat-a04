@@ -8,9 +8,9 @@ package baseline;
 public class Solution45 {
     public static void main(String[] args) {
         //create the string that we want to modify from
-        String changeFrom = "";
+        String changeFrom = "utilize";
         //create the string that we want to modify to
-        String changeTo = "";
+        String changeTo = "use";
 
         //create a constructor for InputOutputFile class
         InputOutputFile inputOutputFile = new InputOutputFile(changeFrom,changeTo);

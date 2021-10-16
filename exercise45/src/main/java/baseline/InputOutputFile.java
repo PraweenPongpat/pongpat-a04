@@ -1,7 +1,6 @@
 package baseline;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.Scanner;
 
 public record InputOutputFile(String changeFrom, String changeTo) {
@@ -63,7 +62,12 @@ public record InputOutputFile(String changeFrom, String changeTo) {
 
     public void displayOutput(StringBuilder output) {
         //allocate a BufferedWriter link to the output .txt file
-        //write the output to the .txt file
-
+        File outputFile = new File("data\\exercise45_output.txt");
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))){
+            //write the output to the .txt file
+            writer.write(output.toString());
+        } catch (IOException e) {
+            System.out.println("output in .txt cannot be displayed");
+        }
     }
 }
