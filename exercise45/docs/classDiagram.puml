@@ -1,0 +1,17 @@
+@startuml
+class Solution45 {
+    +main()
+}
+class InputOutputFile {
+    -String changeFrom
+    -String changeTo
+
+    +getChangeFrom()
+    +getChangeTo()
+    +String[] readFile()
+    +StringBuilder replaceWords(String[])
+    +displayOutput(StringBuilder)
+        'displaying output will not be tested
+}
+Solution45 o-- InputOutputFile
+@enduml
