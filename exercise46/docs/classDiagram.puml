@@ -1,0 +1,14 @@
+@startuml
+class Solution46 {
+    +main()
+    +Map parseAndCount(String)
+    +List makeCountArr(Map)
+}
+
+class InputOutput {
+    +String readFromFile()
+    -outputToScreen(Map, List)
+}
+
+Solution46 o-- InputOutput
+@enduml

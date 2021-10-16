@@ -5,8 +5,7 @@
 
 package baseline;
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Solution46 {
     public static void main(String[] args) {
@@ -31,29 +30,46 @@ public class Solution46 {
         inOut.outputToScreen(wordToCount,countOccurrencesList);
     }
 
-    private Map<String, Integer> parseAndCount(String rawData) {
+    public Map<String, Integer> parseAndCount(String rawData) {
         //parse the data input using split
         //store the result as String array
+        String[] parsedData = rawData.split(",");
 
         //create a map to store result
-        //iterate through the size of the array
-        //check each iteration:
-        //      if the key already exists in the map, increment the count
-        //      if the key has not existed in the map, put in the map, make a 1-count
+        Map<String,Integer> wordToCountMap = new TreeMap<>();
+        int tempCount;
 
+        //iterate through the size of the array
+        for(int i = 0; i < parsedData.length; i++) {
+            //check each iteration:
+            //      if the key already exists in the map, increment the count
+            if(wordToCountMap.containsKey(parsedData[i])) {
+                tempCount = wordToCountMap.get(parsedData[i]) + 1;  //increment the count
+                wordToCountMap.put(parsedData[i],tempCount);        //write over the key-val pair with the new count
+            } else {
+                //if the key has not existed in the map, put in the map, make a 1-count
+                wordToCountMap.put(parsedData[i],1);
+            }
+        }
         //return the Map
-        return null;
+        return wordToCountMap;
     }
 
-    private List<Integer> makeCountArr(Map<String, Integer> wordToCount) {
+    public List<Integer> makeCountArr(Map<String, Integer> wordToCountMap) {
         //make a list of integer to store result
+        List<Integer> countList = new ArrayList<>();
 
         //iterate through the map, get only to values to the list (making a countList)
+        for(Map.Entry<String,Integer> entry: wordToCountMap.entrySet()) {
+            countList.add(entry.getValue());
+        }
 
         //sort the list (min-to-max)
+        Collections.sort(countList);
         //reverse the order of the list (max-to-min)
+        Collections.reverse(countList);
 
         //return that list
-        return null;
+        return countList;
     }
 }
