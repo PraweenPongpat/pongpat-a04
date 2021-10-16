@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 public class InputOutput {
     public String readFromFile() {
@@ -19,6 +20,7 @@ public class InputOutput {
                 //  read one word at a time, putting comma between each word
                 //  store the result to a StringBuilder
                 rawData.append(input.next()).append(",");
+
             }
             //return that string builder
             return rawData.toString();
@@ -30,11 +32,22 @@ public class InputOutput {
 
     protected void outputToScreen(Map<String, Integer> wordToCount, List<Integer> countOccurrencesList) {
         //create the set of keys using keySet, used to retrieve the value from the key
+        Set<String> set = wordToCount.keySet();
+        int index = 0;  //index to iterate through the list
+        int value;
 
         //iterate through the set of keys
-        //  get index of most front value from the list
-        //  retrieve the key from that value
-        //  display both key and value in a proper format
-        //  increment index of list
+        for(String key : set) {
+            //  get index of most front value from the list
+            value = countOccurrencesList.get(index);
+
+            //  retrieve the key from that value
+            //  display both key and value in a proper format
+            if(!key.equals("")) {
+                System.out.printf("%-15s | %-15s%n", key, "*".repeat(value));
+            }
+            //  increment index of list
+            index++;
+        }
     }
 }

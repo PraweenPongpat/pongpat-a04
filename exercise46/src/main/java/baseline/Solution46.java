@@ -40,15 +40,15 @@ public class Solution46 {
         int tempCount;
 
         //iterate through the size of the array
-        for(int i = 0; i < parsedData.length; i++) {
+        for (String parsedDatum : parsedData) {
             //check each iteration:
             //      if the key already exists in the map, increment the count
-            if(wordToCountMap.containsKey(parsedData[i])) {
-                tempCount = wordToCountMap.get(parsedData[i]) + 1;  //increment the count
-                wordToCountMap.put(parsedData[i],tempCount);        //write over the key-val pair with the new count
+            if (wordToCountMap.containsKey(parsedDatum)) {
+                tempCount = wordToCountMap.get(parsedDatum) + 1;  //increment the count
+                wordToCountMap.put(parsedDatum, tempCount);        //write over the key-val pair with the new count
             } else {
                 //if the key has not existed in the map, put in the map, make a 1-count
-                wordToCountMap.put(parsedData[i],1);
+                wordToCountMap.put(parsedDatum, 1);
             }
         }
         //return the Map
